@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: frontend
+  name: frontend
+spec:
+  containers:
+  - image: raventid/hispterfrontend:latest
+    name: frontend
+    env:
+    - name: PRODUCT_CATALOG_SERVICE_ADDR
+      value: "productcatalogservice:8081"
+    - name: CURRENCY_SERVICE_ADDR
+      value: "currencyservice:8082"
+    - name: CART_SERVICE_ADDR
+      value: "cartservice:8083"
+    - name: RECOMMENDATION_SERVICE_ADDR
+      value: "recommendationservice:8084"
+    - name: SHIPPING_SERVICE_ADDR
+      value: "shippingservice:8085"
+    - name: CHECKOUT_SERVICE_ADDR
+      value: "checkoutservice:8086"
+    - name: AD_SERVICE_ADDR
+      value: "adservice:8087"
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
