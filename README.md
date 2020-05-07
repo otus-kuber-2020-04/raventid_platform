@@ -85,7 +85,7 @@ kube-proxy   1         1         1       1            1           kubernetes.io/
 
 После запуска проекта:
 ``` sh
-kubectl apply -f frontend-pod-healthy.yaml
+kubectl apply -f frontend-pod.yaml
 ```
 
 В логах видно, что не установлены необходимые переменные окружения.
