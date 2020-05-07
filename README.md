@@ -79,6 +79,9 @@ kube-proxy   1         1         1       1            1           kubernetes.io/
 ```
 
 ### Web pod (основное задание)
+Перейти в рабочую директорию:
+`$ cd kubernetes-intro`
+
 При условии запущенного и сконфигурированного kubernetes нужно выполнить:
 `$ kubectl apply -f web-pod.yaml`
 
@@ -96,7 +99,8 @@ kube-proxy   1         1         1       1            1           kubernetes.io/
 
 После запуска проекта:
 ``` sh
-kubectl apply -f frontend-pod.yaml
+$ cd kubernetes-intro`
+$ kubectl apply -f frontend-pod.yaml
 ```
 
 В логах видно, что не установлены необходимые переменные окружения.
@@ -105,5 +109,6 @@ kubectl apply -f frontend-pod.yaml
 запустить, как:
 
 ``` sh
-kubectl apply -f frontend-pod-healthy.yaml
+$ cd kubernetes-intro
+$ kubectl apply -f frontend-pod-healthy.yaml
 ```
