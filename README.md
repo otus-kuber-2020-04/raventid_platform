@@ -78,6 +78,17 @@ kindnet      1         1         1       1            1           <none>        
 kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   2d17h   kube-proxy    k8s.gcr.io/kube-proxy:v1.18.0   k8s-app=kube-proxy
 ```
 
+### Web pod (основное задание)
+При условии запущенного и сконфигурированного kubernetes нужно выполнить:
+`$ kubectl apply -f web-pod.yaml`
+
+Чтобы пробросить порт выполните
+`$ kubectl port-forward --address 0.0.0.0 pod/web 8000:8000`
+
+Для того, чтобы убедится в правильности выполненого задания нужно просто перейти
+по ссылке http://localhost:8000
+
+
 
 ### Сборка frontend (задание со *)
 
