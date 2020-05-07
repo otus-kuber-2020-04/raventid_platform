@@ -64,9 +64,9 @@ pod "storage-provisioner" deleted
 
 Восстановление происходит по разным причинам:
 
-kube-proxy - daemonSet
-coredns, nginx-ingress-controller - replicaSets
-etcd, apiserver, controllermanager, scheduler - наличие файлов etcd.yaml, kube-apiserver.yaml, kube-controller-manager.yaml, kube-scheduler.yaml в папке /etc/kubernetes/manifests/
+- kube-proxy - daemonSet
+- coredns, nginx-ingress-controller - replicaSets
+- etcd, apiserver, controllermanager, scheduler - наличие файлов etcd.yaml, kube-apiserver.yaml, kube-controller-manager.yaml, kube-scheduler.yaml в папке /etc/kubernetes/manifests/
 
 Можно посмотреть daemon и replica сеты с помощью kubectl (https://kubernetes.io/docs/reference/kubectl/overview/)
 
