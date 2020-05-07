@@ -62,6 +62,7 @@ pod "storage-provisioner" deleted
 Идея изложена тут https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/
 Еще о компонентах можно посмотреть тут https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 
+
 Восстановление происходит по разным причинам:
 
 - kube-proxy - daemonSet
