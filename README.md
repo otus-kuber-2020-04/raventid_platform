@@ -1,6 +1,6 @@
 # raventid_platform
 ## HW-1 Kubernetes Intro
-### Install
+### Подготовка
 
 Установка kubectl: 
 
@@ -92,7 +92,6 @@ kube-proxy   1         1         1       1            1           kubernetes.io/
 по ссылке http://localhost:8000
 
 
-
 ### Сборка frontend (задание со *)
 
 Был собран образ `frontend` и загружен на `Docker Hub`.
@@ -105,7 +104,7 @@ $ kubectl apply -f frontend-pod.yaml
 
 В логах видно, что не установлены необходимые переменные окружения.
 
-Переменные добавлены в конфигурацию `frontend-healthy.yaml`, которую можно
+Переменные добавлены в конфигурацию `frontend-pod-healthy.yaml`, которую можно
 запустить, как:
 
 ``` sh
