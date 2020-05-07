@@ -59,16 +59,25 @@ pod "storage-provisioner" deleted
 ```
 Поды в неймспейсе kube-system пересоздаются, так как являются статическими подами, описаными в папке с манифестами.
 
-Core-dns восстанавливается как Deployment.
+Идея изложена тут https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/
+Еще о компонентах можно посмотреть тут https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+
+Восстановление происходит по разным причинам:
+
+kube-proxy - daemonSet
+coredns, nginx-ingress-controller - replicaSets
+etcd, apiserver, controllermanager, scheduler - наличие файлов etcd.yaml, kube-apiserver.yaml, kube-controller-manager.yaml, kube-scheduler.yaml в папке /etc/kubernetes/manifests/
+
+Можно посмотреть daemon и replica сеты с помощью kubectl (https://kubernetes.io/docs/reference/kubectl/overview/)
 
 ``` sh
-raven:~/raventid_platform $ kubectl get deployment --namespace=kube-system -o wide
+raven:~/raventid_platform $ kubectl get rs --namespace=kube-system -o wide
 
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                     SELECTOR
 coredns   2/2     2            2           17h   coredns      k8s.gcr.io/coredns:1.6.7   k8s-app=kube-dns
 ```
+Вот например coredns у нас есть в выводе rs (replica)
 
-Kube-proxy восстанавливается как DaemonSet.
 
 ``` sh
 raven:~/raventid_platform $ kubectl get ds --namespace=kube-system -o wide
@@ -77,6 +86,7 @@ NAME         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 kindnet      1         1         1       1            1           <none>                   2d17h   kindnet-cni   kindest/kindnetd:0.5.3          app=kindnet
 kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   2d17h   kube-proxy    k8s.gcr.io/kube-proxy:v1.18.0   k8s-app=kube-proxy
 ```
+А kube-proxy в выводе ds (daemon)
 
 ### Web pod (основное задание)
 Перейти в рабочую директорию:
